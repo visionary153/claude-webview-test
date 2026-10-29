@@ -53,36 +53,36 @@ export default function App() {
   const actions: Action[] = [
     {
       key: 'camera',
-      icon: '📷',
+      icon: 'camera',
       label: TYPE_LABELS['camera.open'],
       hint: '촬영 후 이미지',
       onPress: () => run('camera.open', null),
     },
     {
       key: 'gallery',
-      icon: '🖼️',
+      icon: 'image',
       label: TYPE_LABELS['gallery.open'],
       hint: '사진 선택',
       onPress: () => run('gallery.open', null),
     },
     {
       key: 'location',
-      icon: '📍',
+      icon: 'location',
       label: TYPE_LABELS['location.get'],
       hint: '위도·경도 기록',
       onPress: () => run('location.get', null),
     },
     {
       key: 'share',
-      icon: '📤',
+      icon: 'share',
       label: TYPE_LABELS['share.open'],
       hint: '네이티브 공유 창',
       onPress: () => run('share.open', buildSharePayload(entries)),
     },
-    { key: 'ping', icon: '🔄', label: TYPE_LABELS.ping, hint: '연결·왕복 시간', onPress: () => run('ping', null) },
+    { key: 'ping', icon: 'ping', label: TYPE_LABELS.ping, hint: '연결·왕복 시간', onPress: () => run('ping', null) },
     {
       key: 'clear',
-      icon: '🧹',
+      icon: 'clear',
       label: '결과 지우기',
       hint: `${entries.length}건`,
       tone: 'muted',
@@ -93,7 +93,13 @@ export default function App() {
   return (
     <div className="app">
       <Header inApp={IN_APP} />
-      <main className="main">
+      <main className="wrap main">
+        <section className="intro">
+          <h1 className="intro-title">
+            <span className="gradient-text">WebView</span> Bridge
+          </h1>
+          <p className="intro-sub">claude-rn-test 앱과 웹뷰 사이의 브릿지 통신을 테스트합니다.</p>
+        </section>
         <ActionGrid actions={actions} />
         <ResultList entries={entries} />
       </main>

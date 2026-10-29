@@ -26,7 +26,7 @@ function toDisplayJson(value: unknown) {
   );
 }
 
-const timeOf = (at: number) => new Date(at).toLocaleTimeString('ko-KR', { hour12: false });
+const timeOf = (at: number) => new Date(at).toTimeString().slice(0, 8);
 
 export function ResultList({ entries }: { entries: ResultEntry[] }) {
   return (

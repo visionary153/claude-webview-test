@@ -26,12 +26,15 @@ export class BridgeError extends Error {
   }
 }
 
-/** 사용자 조작(촬영·선택·공유)이 끼는 요청은 오래 기다린다 */
+/**
+ * 사용자 조작(촬영·선택·공유)이 끼는 요청은 오래 기다린다.
+ * 위치는 GPS를 못 잡으면 네이티브가 약 30초 뒤 에러를 주므로 그보다 길게 기다려야 실제 에러를 받는다.
+ */
 const TIMEOUT_MS: Record<BridgeType, number> = {
   ping: 3_000,
   'camera.open': 120_000,
   'gallery.open': 120_000,
-  'location.get': 30_000,
+  'location.get': 60_000,
   'share.open': 120_000,
 };
 

@@ -1,6 +1,8 @@
+import { Icon, type IconName } from './Icon';
+
 export type Action = {
   key: string;
-  icon: string;
+  icon: IconName;
   label: string;
   hint: string;
   tone?: 'muted';
@@ -20,8 +22,8 @@ export function ActionGrid({ actions }: { actions: Action[] }) {
             className={`grid-button ${action.tone === 'muted' ? 'grid-button-muted' : ''}`}
             onClick={action.onPress}
           >
-            <span className="grid-icon" aria-hidden>
-              {action.icon}
+            <span className="grid-icon">
+              <Icon name={action.icon} />
             </span>
             <span className="grid-label">{action.label}</span>
             <span className="grid-hint">{action.hint}</span>
