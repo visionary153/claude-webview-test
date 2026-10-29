@@ -1,22 +1,25 @@
-/* 색·폰트·분위기는 visionary153.com(src/app/globals.css)을 따른다 */
+/*
+ * 색·폰트는 visionary153.com(src/app/globals.css)의 다크 테마를 따른다.
+ * 앱 웹뷰는 라이트로 고정돼 있어 시스템 설정과 상관없이 항상 다크로 쓴다.
+ */
 :root {
-  --bg: #ffffff;
-  --bg-soft: #f5f7fd;
-  --surface: #ffffff;
-  --text: #1b2140;
-  --muted: #545c7a;
-  --line: #e3e7f2;
-  --accent: #3a5bef;
-  --accent-text: #2b48d6;
-  --accent-soft: #eef1ff;
-  --g1: #4cc9f0;
-  --g2: #3a5bef;
-  --g3: #7b4dff;
+  --bg: #0e1330;
+  --bg-soft: #121a3f;
+  --surface: #161d46;
+  --text: #ffffff;
+  --muted: #aeb5d8;
+  --line: #2a3366;
+  --accent: #7a93ff;
+  --accent-text: #a9b9ff;
+  --accent-soft: #1e2758;
+  --g1: #6fd8ff;
+  --g2: #5b7bff;
+  --g3: #9b78ff;
   /* 상태 색: 참고 사이트에 없어 팔레트에 맞춰 정했다 */
-  --danger: #d6334b;
-  --danger-soft: #fdedf0;
-  --code-bg: #1b2140;
-  --code-text: #e3e7f2;
+  --danger: #ff8597;
+  --danger-soft: #3a1c3a;
+  --code-bg: #04071a;
+  --code-text: #d5dbf5;
 
   --radius-card: 20px;
   --content-width: 640px;
@@ -24,37 +27,25 @@
   --sans: 'IBM Plex Sans KR', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --mono: ui-monospace, Menlo, Consolas, monospace;
 
-  color-scheme: light dark;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0e1330;
-    --bg-soft: #121a3f;
-    --surface: #161d46;
-    --text: #ffffff;
-    --muted: #aeb5d8;
-    --line: #2a3366;
-    --accent: #7a93ff;
-    --accent-text: #a9b9ff;
-    --accent-soft: #1e2758;
-    --g1: #6fd8ff;
-    --g2: #5b7bff;
-    --g3: #9b78ff;
-    --danger: #ff8597;
-    --danger-soft: #3a1c3a;
-    --code-bg: #04071a;
-    --code-text: #d5dbf5;
-  }
+  color-scheme: dark;
 }
 
 * {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
+html {
   background: var(--bg);
+}
+
+body {
+  min-height: 100svh;
+  margin: 0;
+  /* 참고 사이트에는 없는 배경: 남색 세로 그라데이션 + 위쪽에 브랜드 파랑·보라 빛 */
+  background:
+    radial-gradient(120% 50% at 30% -10%, rgb(91 123 255 / 0.22), transparent 70%),
+    radial-gradient(80% 40% at 100% 0%, rgb(155 120 255 / 0.16), transparent 70%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
   color: var(--text);
   font: 15px/1.6 var(--sans);
   word-break: keep-all;
@@ -95,7 +86,6 @@ dd {
 /* Header */
 .header {
   border-bottom: 1px solid var(--line);
-  background: var(--bg);
 }
 
 .header-inner {
@@ -198,7 +188,7 @@ dd {
   font: inherit;
   text-align: left;
   color: var(--text);
-  background: var(--bg-soft);
+  background: var(--surface);
   cursor: pointer;
   transition:
     transform 0.1s ease,
