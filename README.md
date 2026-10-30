@@ -36,7 +36,7 @@ RN → 웹   webview.injectJavaScript("window.__bridgeReceive({ v, id, ok, data 
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000 (host: true로 LAN IP에서도 접속 가능)
+npm run dev        # http://localhost:5173 (host: true로 LAN IP에서도 접속 가능)
 npm run typecheck
 npm run lint
 npm run format     # prettier
@@ -45,9 +45,9 @@ npm run build
 
 ### 앱에서 열기
 
-앱 웹뷰 화면의 기본 주소가 `http://localhost:3000`이다. 기기에서 `localhost`는 기기 자신이므로:
+앱 웹뷰 화면의 기본 주소가 `http://localhost:5173`이다. 기기에서 `localhost`는 기기 자신이므로:
 
-- USB 기기·에뮬레이터: `adb reverse tcp:3000 tcp:3000` 후 `localhost:3000`
+- USB 기기·에뮬레이터: `adb reverse tcp:5173 tcp:5173` 후 `localhost:5173`
 - 에뮬레이터: host를 `10.0.2.2`로
 - Wi-Fi: host에 PC의 IP
 
